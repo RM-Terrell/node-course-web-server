@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Some Website</title>
+</head>
+
+<body>
+  {{> header}}
+  <!--Double braces used for passing values-->
+  <p>{{welcomeMessage}}</p>
+</body>
+
+{{> footer}} <!--need to use -e flag to watch these changes in nodemon-->
+
+</html>
