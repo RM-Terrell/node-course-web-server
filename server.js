@@ -2,7 +2,7 @@ const express = require('express'); //express js
 const hbs = require('hbs'); // handlebars
 const fs = require('fs'); //file system
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; //Needed for heroku setup
 
 var app = express();
 
