@@ -16,11 +16,11 @@ app.use((req, res, next) => { //"next" will keep the app from progressing until 
   var log = `${now}: ${req.method} ${req.url}`;
 
   console.log(log); // tilde quotes only
-  fs.appendFile('server.log',log +'\n', (err) => {
-    if(err){
+  fs.appendFile('server.log', log + '\n', (err) => {
+    if (err) {
       console.log('Cannot append file')
     }
-  } );
+  });
 
   next();
 });
@@ -52,11 +52,17 @@ app.get('/about', (req, res) => {
   });
 });
 
-  app.get('/projects', (req, res) => {
-    res.render('projects.hbs', {
-      pageTitle: 'Projects Page'
-    })
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page'
+  })
+});
+
+app.get('/reportPage', (req, res) => {
+  res.render('reportPage.hbs', {
+    pageTitle: 'Report a Problem'
   });
+});
 
 
 app.listen(port, () => {
