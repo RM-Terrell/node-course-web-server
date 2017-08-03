@@ -17,11 +17,14 @@ app.use((req, res, next) => { //"next" will keep the app from progressing until 
   var log = `${now}: ${req.method} ${req.url}`;
 
   console.log(log); // tilde quotes only
-  fs.appendFile('server.log', log + '\n', (err) => {
-    if (err) {
-      console.log('Cannot append file')
-    }
-  });
+
+  // Below code creates server log
+  
+  // fs.appendFile('server.log', log + '\n', (err) => {
+  //   if (err) {
+  //     console.log('Cannot append file')
+  //   }
+  // });
 
   next();
 });
@@ -31,7 +34,12 @@ app.use((req, res, next) => { //"next" will keep the app from progressing until 
 // });
 
 app.use(express.static(__dirname + '/public')); //Make sure to use double underscore. Dir name gets directory so we can move the whole project
-app.use('/scripts', express.static(__dirname + '/node_modules/bootstrap/dist/'));
+
+
+app.use('/', express.static(__dirname + '/www')); // redirect root
+app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
+app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 
 hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear()
