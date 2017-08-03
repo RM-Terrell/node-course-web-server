@@ -2,6 +2,7 @@ const express = require('express'); //express js
 const hbs = require('hbs'); // handlebars
 const fs = require('fs'); //file system
 
+
 const port = process.env.PORT || 3000;
 
 var app = express();
@@ -30,6 +31,7 @@ app.use((req, res, next) => { //"next" will keep the app from progressing until 
 // });
 
 app.use(express.static(__dirname + '/public')); //Make sure to use double underscore. Dir name gets directory so we can move the whole project
+app.use('/scripts', express.static(__dirname + '/node_modules/bootstrap/dist/'));
 
 hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear()
