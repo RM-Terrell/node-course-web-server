@@ -18,8 +18,8 @@ app.use((req, res, next) => { //"next" will keep the app from progressing until 
 
   console.log(log); // tilde quotes only
 
-  // Below code creates server log
-  
+  // Below code creates and updates server log
+
   // fs.appendFile('server.log', log + '\n', (err) => {
   //   if (err) {
   //     console.log('Cannot append file')
@@ -73,7 +73,6 @@ app.get('/reportPage', (req, res) => {
     pageTitle: 'Report a Problem'
   });
 });
-
 
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
