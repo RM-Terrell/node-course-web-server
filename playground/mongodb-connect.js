@@ -1,6 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 
 MongoClient.connect('mongodb://localhost:27017/TodoApp', (err,db) => {
+   //Put Heroku url here for web deploy
   if(err){
     return console.log('Unable to connect to mongodb server') //Return makes the program stop
   }
@@ -20,4 +21,4 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err,db) => {
 
   db.close();
 
-}); //Put Heroku url here for web deploy
+});
